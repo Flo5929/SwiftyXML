@@ -681,7 +681,7 @@ public class SimpleXMLParser: NSObject, XMLParserDelegate {
     }
     
     // MARK: - XMLParserDelegate
-    @objc public func parser(_ parser: XMLParser,
+    public func parser(_ parser: XMLParser,
                              didStartElement elementName: String,
                              namespaceURI: String?,
                              qualifiedName qName: String?,
@@ -698,7 +698,7 @@ public class SimpleXMLParser: NSObject, XMLParserDelegate {
         }
     }
     
-    @objc public func parser(_ parser: XMLParser, foundCharacters string: String) {
+    public func parser(_ parser: XMLParser, foundCharacters string: String) {
         
         if let currentValue = self.currentElement?.value {
             self.currentElement?.value = currentValue + string
@@ -707,7 +707,7 @@ public class SimpleXMLParser: NSObject, XMLParserDelegate {
         }
     }
     
-    @objc public func parser(_ parser: XMLParser,
+    public func parser(_ parser: XMLParser,
                              didEndElement elementName: String,
                              namespaceURI: String?,
                              qualifiedName qName: String?)
@@ -715,7 +715,7 @@ public class SimpleXMLParser: NSObject, XMLParserDelegate {
         currentElement = currentElement?.parent
     }
     
-    @objc public func parser(_ parser: XMLParser, parseErrorOccurred parseError: Swift.Error) {
+    public func parser(_ parser: XMLParser, parseErrorOccurred parseError: Swift.Error) {
         self.parseError = parseError
     }
 }
